@@ -28,6 +28,11 @@
 .result-card>*{width:100%;text-align:center}
 .result-card h2,.result-card .eyebrow,.result-card .final-score,.result-card .score-unit,.result-card .result-copy,.result-card .primary{letter-spacing:normal;font-kerning:normal;text-align:center}
 .result-card .primary{width:max-content;max-width:100%;align-self:center}
+/* Keep the cart stage clean and give the guide text its own space above the cart. */
+.floor:before{display:none}
+.bottom-hint{bottom:126px;z-index:4;pointer-events:none}
+@media(max-width:640px){.bottom-hint{bottom:126px;font-size:10px;letter-spacing:.13em}}
+@media(max-height:650px){.bottom-hint{bottom:126px}}
 </style>
 </head>
 <body>
