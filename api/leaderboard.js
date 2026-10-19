@@ -63,10 +63,10 @@ async function ensureSubmitFunction(sql) {
       VALUES (p_initials, p_score)
       RETURNING game_scores.id INTO submitted_id;
 
-      DELETE FROM game_scores
-      WHERE game_scores.id NOT IN (
-        SELECT id FROM game_scores
-        ORDER BY game_scores.score DESC, game_scores.created_at ASC, game_scores.id ASC
+      DELETE FROM game_scores AS candidate_to_remove
+      WHERE candidate_to_remove.id NOT IN (
+        SELECT ranked.id FROM game_scores AS ranked
+        ORDER BY ranked.score DESC, ranked.created_at ASC, ranked.id ASC
         LIMIT 5
       );
 
